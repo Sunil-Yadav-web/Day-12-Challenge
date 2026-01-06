@@ -117,7 +117,19 @@ countSwapArrayInput.addEventListener('input', (e) => {
 })
 
 function sortObjArray(input) {
-  let arr = JSON.parse(input)
+    let arr
+
+  try {
+    arr = JSON.parse(input)
+  } catch (error) {
+   sortObjArrayOutput.innerHTML = ("Invalid JSON format")
+    return
+  }
+
+  if (!Array.isArray(arr)) {
+   sortObjArrayOutput.innerHTML = ("Parsed data is not an array")
+    return
+  }
   let n = arr.length
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
@@ -188,7 +200,19 @@ sortCharacterInput.addEventListener('input', (e) => {
 })
 
 function sort2DArray(input) {
-  let arr = JSON.parse(input)
+     let arr
+
+  try {
+    arr = JSON.parse(input)
+  } catch (error) {
+   sort2DArrayOutput.innerHTML = ("Invalid JSON format")
+    return
+  }
+
+  if (!Array.isArray(arr)) {
+   sort2DArrayOutput.innerHTML = ("Parsed data is not an array")
+    return
+  }
   let n = arr.length
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
